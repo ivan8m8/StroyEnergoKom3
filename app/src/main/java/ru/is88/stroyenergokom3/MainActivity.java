@@ -9,7 +9,7 @@ import ru.is88.stroyenergokom3.fragments.Task3Fragment2;
 import ru.is88.stroyenergokom3.fragments.ViewPagerFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements ViewPagerFragment.OnParentBackPressed, Task3Fragment.OnTask3FragmentButtonClickListener {
+        implements ViewPagerFragment.OnParentBackPressedListener, Task3Fragment.OnTask3FragmentButtonClickListener {
 
     private static final String VIEWPAGER_TAG = "VPT";
     private Task3Fragment2 mTask3Fragment2;

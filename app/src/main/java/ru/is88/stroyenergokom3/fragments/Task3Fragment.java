@@ -31,6 +31,8 @@ public class Task3Fragment extends Fragment {
 
         if (context instanceof OnTask3FragmentButtonClickListener)
             mOnTask3FragmentButtonClickListener = (OnTask3FragmentButtonClickListener) context;
+        else
+            throw new IllegalStateException("OnTask3FragmentButtonClickListener must be implemented");
     }
 
     @Nullable

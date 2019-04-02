@@ -17,14 +17,14 @@ import ru.is88.stroyenergokom3.R;
 
 public class ViewPagerFragment extends Fragment {
 
-    public interface OnParentBackPressed {
+    public interface OnParentBackPressedListener {
         void onParentBackPressed();
     }
 
     private Toast mToast;
     private ViewPager mViewPagerLayout;
 
-    private OnParentBackPressed mOnParentBackPressed;
+    private OnParentBackPressedListener mOnParentBackPressedListener;
 
     public ViewPagerFragment() {}
 
@@ -36,8 +36,10 @@ public class ViewPagerFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (context instanceof OnParentBackPressed)
-            mOnParentBackPressed = (OnParentBackPressed) context;
+        if (context instanceof OnParentBackPressedListener)
+            mOnParentBackPressedListener = (OnParentBackPressedListener) context;
+        else
+            throw new IllegalStateException("OnParentBackPressedListener must be implemented");
     }
 
     @SuppressLint("ShowToast")
@@ -89,7 +91,7 @@ public class ViewPagerFragment extends Fragment {
             if (mViewPagerLayout.getCurrentItem() != 0)
                 mViewPagerLayout.setCurrentItem(0, true);
             else
-                mOnParentBackPressed.onParentBackPressed();
+                mOnParentBackPressedListener.onParentBackPressed();
         }
     }
 }
