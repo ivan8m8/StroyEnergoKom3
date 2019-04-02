@@ -1,4 +1,4 @@
-package ru.is88.stroyenergokom3;
+package ru.is88.stroyenergokom3.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import ru.is88.stroyenergokom3.MyViewPagerAdapter;
+import ru.is88.stroyenergokom3.R;
+
 public class ViewPagerFragment extends Fragment {
 
-    interface OnParentBackPressed {
+    public interface OnParentBackPressed {
         void onParentBackPressed();
     }
 
@@ -56,8 +59,8 @@ public class ViewPagerFragment extends Fragment {
 
         mViewPagerLayout = view.findViewById(R.id.viewPager);
 
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getChildFragmentManager());
-        mViewPagerLayout.setAdapter(myPagerAdapter);
+        MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(getChildFragmentManager());
+        mViewPagerLayout.setAdapter(myViewPagerAdapter);
 
         // TASK #1
         mViewPagerLayout.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
